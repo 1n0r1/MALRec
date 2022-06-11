@@ -17,7 +17,7 @@ for chunk in fileReader:
     newdf = chunk.pivot(index='username', columns='anime_id', values='my_score').fillna(0).astype('int8')
     df = pd.concat((df,newdf)).groupby(['username']).first().fillna(0).astype('int8')
     print(df)
-    df.to_csv('./value_matrix.csv')
+    df.to_csv('./value_matrix_' + str(count) + '.csv')
     # df.loc[row.iloc[0], row.iloc[1]] = row.iloc[5]=
 print(df)
 
